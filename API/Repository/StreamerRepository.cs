@@ -27,6 +27,14 @@ namespace Apka.Repository
             return streamer;
         }
 
+        public async Task<Streamer> AddNewStreamer(Streamer streamer)
+        {
+            await context.Streamers.AddAsync(streamer);
+            await context.SaveChangesAsync();
+
+            return streamer;
+        }
+
         private readonly DataContext context;
     }
 }

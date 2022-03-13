@@ -1,4 +1,5 @@
 ﻿using Apka.Dto;
+using Apka.Models;
 using Apka.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,18 @@ namespace Apka.Controllers
             var streamerToReturn = mapper.Map<StreamerDto>(streamer);
 
             return Ok(streamerToReturn);
+        }
+
+        [HttpPost("add")]
+        public async Task<IActionResult> AddNewStreamer(StreamerDto streamerDto)
+        {
+            var streamerToCreate = mapper.Map<Streamer>(streamerDto);
+
+            var createdStreamer = await streamerRepository.AddNewStreamer(streamerToCreate);
+
+            var streamerToReturn = mapper.Map<StreamerDto>(createdStreamer);
+
+            return CreatedAtRoute("GetStreamers", new { controller = "Streamer" }, streamerToReturn);
         }
 
 

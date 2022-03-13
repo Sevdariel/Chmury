@@ -8,5 +8,6 @@ namespace Apka.Repository
     {
         Task<List<Streamer>> GetAllStreamers();
         Task<Streamer> GetStreamerById(int id);
+        Task<Streamer> AddNewStreamer(Streamer streamer);
     }
 }

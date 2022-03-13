@@ -9,6 +9,7 @@ namespace Apka.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<Streamer, StreamerDto>();
+            CreateMap<StreamerDto, Streamer>();
         }
     }
 }
