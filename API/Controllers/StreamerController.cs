@@ -3,6 +3,7 @@ using Apka.Models;
 using Apka.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -48,6 +49,19 @@ namespace Apka.Controllers
             var streamerToReturn = mapper.Map<StreamerDto>(createdStreamer);
 
             return CreatedAtRoute("GetStreamers", new { controller = "Streamer" }, streamerToReturn);
+        }
+
+        [HttpPost("{id}")]
+        public async Task<IActionResult> UpdateStreamer(int id, StreamerDto streamerDto)
+        {
+            var streamer = await streamerRepository.GetStreamerById(id);
+
+            mapper.Map(streamerDto, streamer);
+
+            if (await streamerRepository.UpdateStreamer())
+                return NoContent();
+
+            throw new Exception($"Updating streamer {id} failed on save");
         }
 
 

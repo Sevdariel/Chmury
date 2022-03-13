@@ -35,6 +35,11 @@ namespace Apka.Repository
             return streamer;
         }
 
+        public async Task<bool> UpdateStreamer()
+        {
+            return await context.SaveChangesAsync() > 0;
+        }
+
         private readonly DataContext context;
     }
 }
