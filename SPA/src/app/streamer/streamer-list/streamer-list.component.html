@@ -1,0 +1,77 @@
+<button (click)="addStreamer()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<table mat-table [dataSource]="streamers">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Id</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="channel">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Channel</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.channel}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="watchTime">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">watch Time</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.watchTime}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="streamTime">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Stream Time</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.streamTime}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="peakViewers">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Peak Viewers</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.peakViewers}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="averageViewers">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Average Viewers</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.averageViewers}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="followers">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Followers</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.followers}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="followersGained">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Followers Gained</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.followersGained}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="viewsGained">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Views Gained</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.viewsGained}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="partnered">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Partnered</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.partnered}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mature">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Mature</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.mature}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="language">
+    <th mat-header-cell *matHeaderCellDef class="data-cell">Language</th>
+    <td mat-cell *matCellDef="let streamer" class="long-cell-value">{{streamer.language}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let streamer">
+      <button mat-menu-item (click)="editStreamer(streamer)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,79 @@
+<button (click)="save()">
+    Save
+</button>
+<button (click)="close()">Close</button>
+
+<form [formGroup]="form">
+    <div>
+        <mat-form-field>
+            <mat-label>Channel</mat-label>
+            <input matInput type="text" formControlName="channel">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Watch Time</mat-label>
+            <input matInput type="number" formControlName="watchTime">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Stream Time</mat-label>
+            <input matInput type="number" formControlName="streamTime">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Peak Viewers</mat-label>
+            <input matInput type="number" formControlName="peakViewers">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Average Viewers</mat-label>
+            <input matInput type="number" formControlName="averageViewers">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Followers</mat-label>
+            <input matInput type="number" formControlName="followers">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Followers Gained</mat-label>
+            <input matInput type="number" formControlName="followersGained">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Views Gained</mat-label>
+            <input matInput type="number" formControlName="viewsGained">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Partnered</mat-label>
+            <mat-select formControlName="partnered">
+                <mat-option value="true">True</mat-option>
+                <mat-option value="false">False</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Mature</mat-label>
+            <mat-select formControlName="mature">
+                <mat-option value="true">True</mat-option>
+                <mat-option value="false">False</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Language</mat-label>
+            <input matInput type="text" formControlName="language">
+        </mat-form-field>
+    </div>
+</form>

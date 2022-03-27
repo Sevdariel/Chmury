@@ -44,6 +44,10 @@ namespace Apka.Controllers
         {
             var streamerToCreate = mapper.Map<Streamer>(streamerDto);
 
+            var streamers = await streamerRepository.GetAllStreamers();
+
+            streamerToCreate.Id = streamers.Count + 1;
+
             var createdStreamer = await streamerRepository.AddNewStreamer(streamerToCreate);
 
             var streamerToReturn = mapper.Map<StreamerDto>(createdStreamer);
@@ -52,7 +56,7 @@ namespace Apka.Controllers
         }
 
         [HttpPost("{id}")]
-        public async Task<IActionResult> UpdateStreamer(int id, StreamerDto streamerDto)
+        public async Task<IActionResult> UpdateStreamer(int id, StreamerForUpdateDto streamerDto)
         {
             var streamer = await streamerRepository.GetStreamerById(id);
 

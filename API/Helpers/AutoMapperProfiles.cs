@@ -10,6 +10,7 @@ namespace Apka.Helpers
         {
             CreateMap<Streamer, StreamerDto>();
             CreateMap<StreamerDto, Streamer>();
+            CreateMap<StreamerForUpdateDto, Streamer>();
         }
     }
 }
